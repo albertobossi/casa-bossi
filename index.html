@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Bossi — Diário Visual</title>
+<meta name="description" content="Uma coleção de fotografias de viagens — retratos de lugares, luz e memória.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Grão de textura -->
+<div class="grain"></div>
+
+<!-- Nav flutuante -->
+<nav class="float-nav" id="floatNav">
+  <div class="nav-inner">
+    <a href="#topo" class="nav-mark">C·B</a>
+    <div class="nav-links">
+      <a href="#galeria">Galeria</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#galeria">Galeria</a>
+    <a href="#mapa">Mapa</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="topo">
+  <div class="hero-media">
+    <img src="images/foto_009.jpg" alt="Fitz Roy ao amanhecer, El Chaltén, Patagônia" id="heroImg">
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Um diário visual de viagens</p>
+    <h1 class="hero-title">Instantes<br>que ficaram.</h1>
+    <p class="hero-sub">Fotografias de lugares que me pararam por um segundo antes de eu puxar a câmera.</p>
+    <a href="#galeria" class="hero-cta">
+      <span>Ver a coleção</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v11M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="hero-count">
+    <span id="heroCountries">—</span> países <span class="dot">·</span> <span id="heroPhotos">—</span> fotografias
+  </div>
+</header>
+
+<!-- Galeria -->
+<main>
+<section class="gallery-section" id="galeria">
+  <div class="section-head">
+    <p class="section-eyebrow">A coleção</p>
+    <h2 class="section-title">Vitrine</h2>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-chip active" data-theme="all">Tudo</button>
+    <button class="filter-chip" data-theme="Paisagens">Paisagens</button>
+    <button class="filter-chip" data-theme="Do Alto">Do Alto</button>
+    <button class="filter-chip" data-theme="Cidades">Cidades</button>
+    <button class="filter-chip" data-theme="Retratos & Momentos">Retratos & Momentos</button>
+  </div>
+
+  <div class="masonry" id="masonry"></div>
+</section>
+
+<!-- Mapa -->
+<section class="map-section" id="mapa">
+  <div class="section-head light">
+    <p class="section-eyebrow">Onde estive</p>
+    <h2 class="section-title">Constelação de lugares</h2>
+    <p class="section-desc">Cada ponto é um lugar visitado. Clique para ver as fotografias de lá.</p>
+  </div>
+  <div class="map-wrap">
+    <svg id="worldMap" viewBox="0 0 1000 500" class="world-map"></svg>
+  </div>
+  <div class="map-legend" id="mapLegend"></div>
+</section>
+
+<!-- Sobre -->
+<section class="about-section" id="sobre">
+  <div class="about-grid">
+    <div class="about-media">
+      <img src="images/foto_005.jpg" alt="Alberto Bossi em viagem" loading="lazy">
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">Quem fotografa</p>
+      <h2 class="section-title">Sobre</h2>
+      <p>Sou engenheiro de formação e hoje empresário, mas foi nas trilhas, nas escaladas e atrás das lentes que encontrei o que realmente me move. Já escalei o Pão de Açúcar e caminhei por trilhas como Torres del Paine, El Chaltén, o Pico da Bandeira e o Pico das Agulhas Negras — desses lugares que fazem qualquer perrengue valer a pena.</p>
+      <p>Entre um violão dedilhado numa noite qualquer, a horta de couve, temperos e alface nos fins de semana e uma receita nova na cozinha, sempre sobra espaço pra próxima viagem. Essas fotos são pedaços dessas jornadas: lugares que me pararam por um segundo antes de eu puxar a câmera, momentos que quis guardar exatamente como senti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contato -->
+<section class="contact-section" id="contato">
+  <p class="section-eyebrow light">Vamos conversar</p>
+  <h2 class="contact-title">Contato</h2>
+  <p class="contact-sub">Sobre uma viagem, uma foto, ou só pra trocar uma ideia.</p>
+  <div class="contact-links">
+    <a href="mailto:albertoabossi@gmail.com" class="contact-link">albertoabossi@gmail.com</a>
+    <a href="https://instagram.com/albertoguima" target="_blank" rel="noopener" class="contact-link">@albertoguima</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Casa Bossi — Alberto Bossi</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima">›</button>
+  <div class="lb-content">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-caption">
+      <p class="lb-location" id="lbLocation"></p>
+      <p class="lb-phrase" id="lbPhrase"></p>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
