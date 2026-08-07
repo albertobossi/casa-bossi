@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Casa Bossi — Design Tokens v1.0
+   Personal travel photography portfolio. Single page, static (HTML/CSS/JS).
+   Every value below is final. Do not invent or interpolate new values.
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: dark base (petrol navy) ---------- */
+  --cb-ink-900:        #071417;  /* lightbox backdrop, deepest shadow            */
+  --cb-ink-800:        #0C1D23;  /* PRIMARY page background                      */
+  --cb-ink-700:        #14282E;  /* elevated surface: cards, scrolled menu       */
+  --cb-line:           #1E363C;  /* 1px hairline dividers and borders on dark    */
+
+  /* ---------- Color: warm neutrals ---------- */
+  --cb-sand-50:        #F2ECE2;  /* light-section background, text on dark       */
+  --cb-sand-100:       #E5DACA;  /* secondary light blocks, inactive chip fill   */
+  --cb-sand-300:       #C6B49C;  /* secondary text ON dark  (8.6:1)              */
+  --cb-mist:           #5C6F72;  /* secondary text ON light (4.8:1)              */
+
+  /* ---------- Color: accent (interaction only) ---------- */
+  --cb-clay-500:       #C05F35;  /* active chip, map dot, hover fill. NOT body text */
+  --cb-clay-300:       #E08A5F;  /* links + accent text on dark (6.5:1), focus ring */
+
+  /* ---------- Color: alpha utilities ---------- */
+  --cb-glass-bg:       rgba(242, 236, 226, 0.06);  /* menu at top of page        */
+  --cb-glass-border:   rgba(242, 236, 226, 0.18);
+  --cb-glass-bg-scrolled:     rgba(12, 29, 35, 0.78);
+  --cb-glass-border-scrolled: #1E363C;
+  --cb-lightbox-bg:    rgba(7, 20, 23, 0.94);
+  --cb-scrim:          linear-gradient(180deg, rgba(7,20,23,0) 35%, rgba(7,20,23,0.82) 100%);
+  --cb-dot-halo:       rgba(192, 95, 53, 0.18);
+
+  /* ---------- Typography: families ---------- */
+  --cb-font-display:   'Newsreader', Georgia, 'Times New Roman', serif;
+  --cb-font-sans:      'Public Sans', system-ui, -apple-system, sans-serif;
+  /* Google Fonts:
+     Newsreader  ital,opsz,wght@0,6..72,200..600;1,6..72,200..600
+     Public Sans ital,wght@0,300..700;1,300..700                                */
+
+  /* ---------- Typography: scale (desktop >= 1024px) ---------- */
+  --cb-hero-size:      96px;   --cb-hero-lh:      0.98;  --cb-hero-ls:      -0.025em;  --cb-hero-weight:      300;
+  --cb-title-size:     56px;   --cb-title-lh:     1.10;  --cb-title-ls:     -0.02em;   --cb-title-weight:     300;
+  --cb-subtitle-size:  26px;   --cb-subtitle-lh:  1.45;  --cb-subtitle-ls:  0;         --cb-subtitle-weight:  300; /* italic */
+  --cb-lead-size:      20px;   --cb-lead-lh:      1.60;  --cb-lead-ls:      0;         --cb-lead-weight:      300;
+  --cb-body-size:      17px;   --cb-body-lh:      1.65;  --cb-body-ls:      0;         --cb-body-weight:      400;
+  --cb-caption-size:   15px;   --cb-caption-lh:   1.50;  --cb-caption-ls:   0;         --cb-caption-weight:   300; /* italic, display face */
+  --cb-meta-size:      14px;   --cb-meta-lh:      1.50;  --cb-meta-ls:      0.01em;    --cb-meta-weight:      400;
+  --cb-ui-size:        13px;   --cb-ui-lh:        1.00;  --cb-ui-ls:        0.08em;    --cb-ui-weight:        500; /* uppercase */
+  --cb-eyebrow-size:   11px;   --cb-eyebrow-lh:   1.00;  --cb-eyebrow-ls:   0.18em;    --cb-eyebrow-weight:   500; /* uppercase */
+  /* tablet 640-1023: hero 64px, title 40px, lead 18px
+     mobile <640:     hero 44px, title 30px, subtitle 20px, lead 17px
+     body / meta / ui / eyebrow never change. Nothing below 13px.               */
+
+  /* ---------- Spacing: 4pt base ---------- */
+  --cb-space-1:   4px;   --cb-space-2:   8px;   --cb-space-3:  12px;  --cb-space-4:  16px;
+  --cb-space-6:  24px;   --cb-space-8:  32px;   --cb-space-12: 48px;  --cb-space-16: 64px;
+  --cb-space-24: 96px;   --cb-space-32: 128px;  --cb-space-40: 160px; --cb-space-48: 192px;
+  --cb-section-gap-mobile:  96px;   /* vertical padding between page sections   */
+  --cb-section-gap-desktop: 160px;
+
+  /* ---------- Layout ---------- */
+  --cb-max-width:      1600px;
+  --cb-gutter-mobile:   16px;  --cb-gutter-tablet:  32px;
+  --cb-gutter-desktop:  48px;  --cb-gutter-wide:    64px;
+  --cb-gallery-cols-mobile:  1;  --cb-gallery-gap-mobile:  12px;
+  --cb-gallery-cols-tablet:  2;  --cb-gallery-gap-tablet:  16px;
+  --cb-gallery-cols-desktop: 3;  --cb-gallery-gap-desktop: 20px;
+  --cb-gallery-cols-wide:    4;  --cb-gallery-gap-wide:    24px;
+  --cb-measure:        68ch;   /* max line length for body copy                 */
+
+  /* ---------- Radius ---------- */
+  --cb-radius-none:  0;      /* photographs — always square                     */
+  --cb-radius-sm:    2px;    /* cards, image containers with chrome             */
+  --cb-radius-md:    4px;    /* modal / lightbox frame                          */
+  --cb-radius-pill:  999px;  /* chips, buttons, floating menu                   */
+
+  /* ---------- Elevation ---------- */
+  --cb-shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.55);
+  --cb-blur-menu:        14px;   /* backdrop-filter at top of page              */
+  --cb-blur-menu-scroll: 18px;   /* backdrop-filter after 80px of scroll        */
+  --cb-blur-lightbox:     8px;
+
+  /* ---------- Motion ---------- */
+  --cb-ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --cb-ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+  --cb-dur-hover:      180ms;
+  --cb-dur-menu:       240ms;
+  --cb-dur-modal:      320ms;
+  --cb-dur-modal-out:  240ms;
+  --cb-dur-filter:     320ms;
+  --cb-dur-reveal:     700ms;
+  --cb-dur-photo:      900ms;
+  --cb-stagger:         60ms;   /* max 6 siblings, then reset to 0              */
+  --cb-reveal-offset:   16px;   /* translateY start for scroll reveal           */
+  --cb-reveal-threshold: 0.15;  /* IntersectionObserver threshold               */
+  --cb-parallax-hero:   0.08;   /* max 8% of hero height                        */
+
+  /* ---------- Photography ---------- */
+  --cb-photo-rest-brightness:  0.88;
+  --cb-photo-hover-brightness: 1;
+  --cb-photo-hover-scale:      1.03;
+  --cb-thumb-width:   800px;
+  --cb-lightbox-width: 2400px;
+  --cb-hero-width:    3200px;
+  --cb-lightbox-inset: 64px;
+
+  /* ---------- Component sizing ---------- */
+  --cb-button-height: 46px;   --cb-button-padding: 13px 26px;
+  --cb-chip-height:   36px;   --cb-chip-padding:    9px 18px;
+  --cb-menu-height:   58px;   --cb-menu-padding:   14px 22px;
+  --cb-menu-offset:   24px;   /* distance from viewport top                     */
+  --cb-menu-scroll-trigger: 80px;
+  --cb-dot-size:       6px;   --cb-dot-size-active: 10px;
+  --cb-dot-halo-size:  6px;   --cb-hit-target:      44px;
+  --cb-focus-ring:     2px solid var(--cb-clay-300);
+  --cb-focus-offset:   2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --cb-dur-hover: 0ms; --cb-dur-menu: 0ms; --cb-dur-modal: 0ms;
+    --cb-dur-modal-out: 0ms; --cb-dur-filter: 0ms; --cb-dur-reveal: 0ms;
+    --cb-dur-photo: 0ms; --cb-stagger: 0ms; --cb-reveal-offset: 0px;
+    --cb-parallax-hero: 0;
+  }
+}
