@@ -48,7 +48,7 @@ p{ text-wrap:pretty; }
 /* ---------- Floating menu ---------- */
 .menu{
   position:fixed; top:var(--cb-menu-offset); left:50%; transform:translateX(-50%);
-  z-index:1000; width:min(var(--cb-max-width), 92vw);
+  z-index:1000; width:fit-content; max-width:min(var(--cb-max-width), 92vw);
   border-radius:var(--cb-radius-pill);
   background:var(--cb-glass-bg); border:1px solid var(--cb-glass-border);
   backdrop-filter:blur(var(--cb-blur-menu)); -webkit-backdrop-filter:blur(var(--cb-blur-menu));
@@ -61,7 +61,8 @@ p{ text-wrap:pretty; }
 }
 .menu-inner{
   height:var(--cb-menu-height); padding:var(--cb-menu-padding);
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:space-between; gap:var(--cb-space-16);
+  white-space:nowrap;
 }
 .menu-mark{
   font-family:var(--cb-font-display); font-size:1.15rem; font-weight:400; color:var(--cb-sand-50);
