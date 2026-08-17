@@ -226,8 +226,14 @@ main > section{ padding:var(--cb-section-gap-mobile) 0; }
 
 /* ---------- Map ---------- */
 .map-section{ background:var(--cb-ink-900); }
-.map-wrap{ padding:0 var(--cb-gutter-desktop); position:relative; }
-.world-map{ width:100%; height:auto; display:block; }
+.map-wrap{ padding:0 var(--cb-gutter-desktop); position:relative; overflow:hidden; cursor:zoom-in; }
+.world-map{
+  width:100%; height:auto; display:block;
+  transition:transform var(--cb-dur-modal) var(--cb-ease-out);
+  transform-origin:50% 50%;
+}
+.map-wrap:hover .world-map{ transform:scale(1.15); }
+.landmass{ fill:var(--cb-sand-300); fill-opacity:0.16; stroke:var(--cb-sand-300); stroke-opacity:0.3; stroke-width:1; }
 .map-legend{ display:flex; flex-wrap:wrap; gap:var(--cb-space-2) var(--cb-space-3); padding:0 var(--cb-gutter-desktop); margin-top:var(--cb-space-8); }
 .legend-chip{
   font-family:var(--cb-font-sans); font-size:var(--cb-meta-size); padding:var(--cb-space-2) var(--cb-space-4);

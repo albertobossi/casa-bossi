@@ -139,7 +139,7 @@ document.getElementById('filters').addEventListener('click', (e) => {
   switchFilter(btn.dataset.theme);
 });
 
-/* ===== Mapa (constelação estilizada) ===== */
+/* ===== Mapa (mundi real, com zoom no hover) ===== */
 const svg = document.getElementById('worldMap');
 const NS = 'http://www.w3.org/2000/svg';
 const W = 1000, H = 500;
@@ -167,6 +167,45 @@ for (let j = 0; j <= 4; j++) {
   gridGroup.appendChild(l);
 }
 svg.appendChild(gridGroup);
+
+// continentes (contornos simplificados, mesma projeção equiretangular dos pontos)
+const LANDMASSES = [
+  { name: 'América do Norte', points: [[83,-70],[70,-95],[68,-133],[71,-156],[66,-165],[58,-162],[55,-160],[48,-125],[40,-124],[32,-117],[23,-110],[20,-105],[16,-95],[14,-92],[9,-83],[8,-77],[10,-83.5],[16,-88],[21,-87],[25,-97],[29,-89],[25,-80],[30,-81],[35,-76],[40,-74],[44,-67],[47,-70],[55,-60],[60,-65],[68,-83],[75,-90],[83,-70]] },
+  { name: 'América do Sul', points: [[8,-77],[11,-72],[10,-64],[8,-59],[5,-52],[-1,-48],[-5,-35],[-8,-34.9],[-13,-38.5],[-20,-40],[-23,-43],[-24,-46.5],[-26,-48.5],[-30,-50],[-34,-58],[-38,-62],[-45,-67],[-50,-69],[-53,-68],[-55,-68],[-52,-73],[-45,-74],[-38,-73],[-33,-71.6],[-23,-70.4],[-18,-70.3],[-12,-77],[-3,-80.7],[1,-79],[4,-77],[8,-77]] },
+  { name: 'Europa', points: [[71,25],[65,25],[60,30],[55,38],[47,40],[45,36],[41,29],[40,26],[38,24],[36,23],[40,19],[41,16],[38,15],[41,9],[43,7],[36,-6],[37,-9],[38.7,-9.4],[43,-9],[46,-2],[49,-5],[51,2],[53,8],[55,12],[58,11],[60,5],[62,6],[67,15],[71,25]] },
+  { name: 'Reino Unido/Irlanda', points: [[58.5,-3],[57,-2],[53,0],[51,1.5],[50,-5],[51,-5.5],[53,-4.5],[55,-6],[58.5,-3]] },
+  { name: 'África', points: [[37,10],[32,32],[15,39],[11,43],[-1,42],[-6,39],[-18,35],[-26,33],[-34,20],[-29,17],[-17,11.7],[4,9],[6,-3],[15,-17],[21,-17],[31,-9.5],[35,-6],[37,10]] },
+  { name: 'Madagascar', points: [[-12,49],[-16,50],[-22,47.5],[-25,45],[-21,43.5],[-16,44.5],[-12,49]] },
+  { name: 'Ásia', points: [[77,105],[70,140],[66,170],[60,163],[51,157],[45,142],[40,128],[31,122],[22,114],[16,108],[10,106],[1,104],[6,95],[8,77],[15,73],[24,68],[25,57],[30,49],[29,34.5],[37,36],[42,41],[47,40],[55,60],[70,60],[77,105]] },
+  { name: 'Japão', points: [[45,141],[43,145],[38,141],[35,140],[33,130],[31,130],[34,135],[38,138],[41,140],[45,141]] },
+  { name: 'Austrália', points: [[-11,132],[-12,141],[-17,146],[-23,151],[-28,153.5],[-33,151.3],[-38,147],[-38,144.9],[-35,137.8],[-32,133],[-34,115],[-32,115.8],[-25,113.5],[-20,113.5],[-16,123],[-11,132]] },
+];
+
+const landmassGroup = document.createElementNS(NS, 'g');
+landmassGroup.setAttribute('class', 'landmass-group');
+LANDMASSES.forEach(({ name, points }) => {
+  const d = points.map(([lat, lon], i) => {
+    const [x, y] = project(lat, lon);
+    return `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).join(' ') + 'Z';
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', d);
+  path.setAttribute('class', 'landmass');
+  path.setAttribute('aria-label', name);
+  landmassGroup.appendChild(path);
+});
+svg.appendChild(landmassGroup);
+
+// zoom sutil seguindo o cursor
+const mapWrap = document.querySelector('.map-wrap');
+if (mapWrap && !reducedMotion) {
+  mapWrap.addEventListener('mousemove', (e) => {
+    const rect = mapWrap.getBoundingClientRect();
+    const xPct = ((e.clientX - rect.left) / rect.width) * 100;
+    const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+    svg.style.transformOrigin = `${xPct}% ${yPct}%`;
+  });
+}
 
 // agrupar por local
 const byLocal = {};
