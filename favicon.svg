@@ -1,10 +1,9 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-<defs><clipPath id="horizonClipFavicon"><circle cx="32" cy="32" r="26"/></clipPath></defs>
+<defs><clipPath id="horizonClipFavicon"><circle cx="32" cy="32" r="28"/></clipPath></defs>
 <circle cx="32" cy="32" r="32" fill="#0C1D23"/>
-<circle cx="32" cy="32" r="26" fill="none" stroke="#C6B49C" stroke-width="1.4" opacity="0.55"/>
 <g clip-path="url(#horizonClipFavicon)">
-<circle cx="32" cy="22" r="6" fill="#E08A5F"/>
-<path d="M4 50L16 32L24 42L32 22L40 42L48 32L60 50Z" fill="#F2ECE2"/>
-<line x1="6" y1="50" x2="58" y2="50" stroke="#0C1D23" stroke-width="0.6" opacity="0.4"/>
+<circle cx="32" cy="17" r="7" fill="#E08A5F"/>
+<path d="M1 55L14 26L23 40L32 14L41 40L50 26L63 55Z" fill="#F2ECE2"/>
 </g>
+<circle cx="32" cy="32" r="28" fill="none" stroke="#C6B49C" stroke-width="2" opacity="0.65"/>
 </svg>
