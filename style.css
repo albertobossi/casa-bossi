@@ -47,10 +47,10 @@ p{ text-wrap:pretty; }
 
 /* ---------- Floating menu ---------- */
 .menu{
-  position:fixed; top:var(--cb-menu-offset); left:50%; transform:translateX(-50%);
-  z-index:1000; width:fit-content; max-width:min(var(--cb-max-width), 92vw);
-  border-radius:var(--cb-radius-pill);
-  background:var(--cb-glass-bg); border:1px solid var(--cb-glass-border);
+  position:fixed; top:0; left:0; right:0;
+  z-index:1000; width:100%;
+  border-radius:var(--cb-radius-none);
+  background:var(--cb-glass-bg); border-bottom:1px solid var(--cb-glass-border);
   backdrop-filter:blur(var(--cb-blur-menu)); -webkit-backdrop-filter:blur(var(--cb-blur-menu));
   transition:background var(--cb-dur-menu) var(--cb-ease-in-out), border-color var(--cb-dur-menu) var(--cb-ease-in-out),
              backdrop-filter var(--cb-dur-menu) var(--cb-ease-in-out);
@@ -60,13 +60,16 @@ p{ text-wrap:pretty; }
   backdrop-filter:blur(var(--cb-blur-menu-scroll)); -webkit-backdrop-filter:blur(var(--cb-blur-menu-scroll));
 }
 .menu-inner{
-  height:var(--cb-menu-height); padding:var(--cb-menu-padding);
+  height:var(--cb-menu-height); padding:0 var(--cb-gutter-desktop);
+  max-width:var(--cb-max-width); margin:0 auto;
   display:flex; align-items:center; justify-content:space-between; gap:var(--cb-space-16);
   white-space:nowrap;
 }
 .menu-mark{
+  display:flex; align-items:center; gap:var(--cb-space-2);
   font-family:var(--cb-font-display); font-size:1.15rem; font-weight:400; color:var(--cb-sand-50);
 }
+.brand-mark{ flex:none; display:block; }
 .menu-links{ display:flex; gap:var(--cb-space-8); }
 .menu-links a{
   font-family:var(--cb-font-sans); font-size:var(--cb-ui-size); letter-spacing:var(--cb-ui-ls);
@@ -98,6 +101,10 @@ p{ text-wrap:pretty; }
 @media (max-width:640px){
   .menu-links{ display:none; }
   .menu-burger{ display:flex; }
+  .menu-inner{ padding:0 var(--cb-gutter-mobile); }
+}
+@media (min-width:641px) and (max-width:1023px){
+  .menu-inner{ padding:0 var(--cb-gutter-tablet); }
 }
 
 /* ---------- Hero ---------- */
@@ -283,6 +290,7 @@ main > section{ padding:var(--cb-section-gap-mobile) 0; }
   background:var(--cb-ink-800); color:var(--cb-sand-300); text-align:center;
   font-family:var(--cb-font-sans); font-size:var(--cb-meta-size);
   padding:var(--cb-space-6) var(--cb-gutter-desktop); border-top:1px solid var(--cb-line);
+  display:flex; flex-direction:column; align-items:center; gap:var(--cb-space-3);
 }
 
 /* ---------- Lightbox ---------- */
